@@ -13,13 +13,18 @@ const contactArray = [
 
 function App() {
   const [contacts, setContacts] = useState(contactArray);
+  const [search, setSearch] = useState("");
+
+  const visibleContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className={css.container}>
-      <h1 style={{padding: "20px 0"}}>Phonebook</h1>
+      <h1 style={{ padding: "20px 0" }}>Phonebook</h1>
       <ContactForm />
-      <SearchBox />
-      <ContactList contacts={contacts} />
+      <SearchBox value={search} onSearch={setSearch} />
+      <ContactList contacts={visibleContacts} />
     </div>
   );
 }
