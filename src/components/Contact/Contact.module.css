@@ -1,0 +1,22 @@
+.contactWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.icons {
+    width: 16px;
+    height: 16px;
+    fill:black;
+    color: black;
+}

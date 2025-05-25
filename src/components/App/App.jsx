@@ -1,8 +1,8 @@
-import ContactForm from '../ContactForm/ContactForm';
-import SearchBox from '../SearchBox/SearchBox';
-import ContactList from '../ContactList/ContactList';
+import css from "./App.module.css";
+import ContactForm from "../ContactForm/ContactForm";
+import SearchBox from "../SearchBox/SearchBox";
+import ContactList from "../ContactList/ContactList";
 import { useState } from "react";
-import { use } from 'react';
 
 const contactArray = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -12,11 +12,11 @@ const contactArray = [
 ];
 
 function App() {
- const [contacts, setContacts] = useState(contactArray)
+  const [contacts, setContacts] = useState(contactArray);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <div className={css.container}>
+      <h1 style={{padding: "20px 0"}}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
       <ContactList contacts={contacts} />
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

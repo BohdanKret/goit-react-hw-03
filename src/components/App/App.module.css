@@ -4,3 +4,11 @@
     padding: 2rem;
     text-align: center;
 }
+
+.container {
+    width: 100%;
+    max-width: 1158px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+}

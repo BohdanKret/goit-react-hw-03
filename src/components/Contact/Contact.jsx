@@ -1,21 +1,21 @@
-export default function Contact({ data: {id, name, number} }) {
+import { IoPerson } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
+import css from "./Contact.module.css";
+
+export default function Contact({ data: { id, name, number } }) {
   return (
-    <div className="contactWrap">
+    <div className={css.contactWrap}>
       <ul>
-        <li>
-          <svg width="24" height="24" className="mob-menu-icons icons">
-            <use href="/icons.svg#icon-person"></use>
-          </svg>
-          <span className="contactName">{name}</span>
+        <li className={css.contactItem}>
+          <IoPerson className={css.icons} />
+          <span className={css.cotactInfo}>{name}</span>
         </li>
-        <li>
-          <svg width="24" height="24" className="mob-menu-icons icons">
-            <use href="/icons.svg#icon-phone"></use>
-          </svg>
-          <span className="cotactNumb">{number}</span>
+        <li className={css.contactItem}>
+          <FaPhoneAlt className={css.icons} />
+          <span className={css.cotactInfo}>{number}</span>
         </li>
       </ul>
-      <button>Delete</button>
+      <button className={css.deleteButton}>Delete</button>
     </div>
   );
 }
