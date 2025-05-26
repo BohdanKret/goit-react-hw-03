@@ -19,10 +19,14 @@ function App() {
     contact.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => [...prevContacts, newContact])
+  }
+
   return (
     <div className={css.container}>
-      <h1 style={{ padding: "20px 0" }}>Phonebook</h1>
-      <ContactForm />
+      <h1 className={css.title}>Phonebook</h1>
+      <ContactForm onAdd={addContact} />
       <SearchBox value={search} onSearch={setSearch} />
       <ContactList contacts={visibleContacts} />
     </div>

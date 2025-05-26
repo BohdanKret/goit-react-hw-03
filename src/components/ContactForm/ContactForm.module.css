@@ -1,0 +1,51 @@
+.formWrapper {
+    padding-bottom: 32px;
+}
+
+.form {
+    width: 340px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.20);
+    padding: 20px;
+}
+
+.fieldWrapper {
+    margin-bottom: 16px;
+}
+
+.label {
+    display: block;
+}
+
+.field {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid black;
+    /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15); */
+    padding: 8px 16px;
+    outline: transparent;
+    color: black;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.field:hover,
+.field:focus,
+.field:active {
+    border-color: #4D5AE5;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.button {
+    margin: 0 auto;
+    display: block;
+}
