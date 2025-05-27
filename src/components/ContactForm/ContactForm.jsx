@@ -8,10 +8,13 @@ export default function ContactForm({ onAdd }) {
 
   const ContactSchema = Yup.object().shape({
     name: Yup.string()
+      .trim()
       .min(3, "Too Short!")
       .max(50, "Too long!")
       .required("Required"),
-    number: Yup.number()
+    number: Yup.string()
+      .trim()
+      .matches(/^\+?[0-9\s\-()]*$/, "Invalid phone number format")
       .min(3, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
@@ -20,8 +23,8 @@ export default function ContactForm({ onAdd }) {
   const handleSubmit = (values, actions) => {
     onAdd({
       id: Date.now(),
-      name: values.name,
-      number: values.number,
+      name: values.name.trim(),
+      number: values.number.trim(),
     });
     actions.resetForm();
   };
@@ -29,7 +32,10 @@ export default function ContactForm({ onAdd }) {
   return (
     <div className={css.formWrapper}>
       <Formik
-        initialValues={{}}
+        initialValues={{
+          name: "",
+          number: "",
+        }}
         onSubmit={handleSubmit}
         validationSchema={ContactSchema}
       >
@@ -55,7 +61,7 @@ export default function ContactForm({ onAdd }) {
               Number
             </label>
             <Field
-              type="number"
+              type="text"
               name="number"
               id={id + "number"}
               className={css.field}
