@@ -2,7 +2,7 @@ import css from "./App.module.css";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactList from "../ContactList/ContactList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const contactArray = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -12,8 +12,20 @@ const contactArray = [
 ];
 
 function App() {
-  const [contacts, setContacts] = useState(contactArray);
+  const [contacts, setContacts] = useState(() => {
+    const savedContactList = window.localStorage.getItem("contactList");
+
+    if (savedContactList !== null) {
+      return JSON.parse(savedContactList);
+    }
+
+    return contactArray;
+  });
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    window.localStorage.setItem("contactList", JSON.stringify(contacts));
+  }, [contacts]);
 
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(search.toLowerCase())
